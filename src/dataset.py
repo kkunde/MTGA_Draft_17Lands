@@ -109,7 +109,7 @@ class Dataset:
     def get_all_names(self) -> List[str]:
         if self._dataset:
             ratings = self._dataset.get("card_ratings", {})
-            return list(set([v[DATA_FIELD_NAME] for v in ratings.values()]))
+            return list({v[DATA_FIELD_NAME] for v in ratings.values()})
         return []
 
     def get_card_archetypes_by_field(self, card_name: str, field: str) -> List[Tuple]:
